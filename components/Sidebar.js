@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import SidebarMenuItem from "./SidebarMenuItem";
+import { HomeIcon } from "@heroicons/react/solid";
 
 const Sidebar = () => {
   return (
@@ -16,7 +17,7 @@ const Sidebar = () => {
 
       {/* <SidebarMenuItem /> */}
       <div>
-        <SidebarMenuItem />
+        <SidebarMenuItem text="Home" Icon={HomeIcon} />
       </div>
     </div>
   );
