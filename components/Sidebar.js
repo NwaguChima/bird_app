@@ -6,6 +6,7 @@ import {
   BookmarkIcon,
   ClipboardIcon,
   DotsCircleHorizontalIcon,
+  DotsHorizontalIcon,
   HashtagIcon,
   HomeIcon,
   InboxIcon,
@@ -34,6 +35,24 @@ const Sidebar = () => {
         <SidebarMenuItem text="List" Icon={ClipboardIcon} />
         <SidebarMenuItem text="Profile" Icon={UserIcon} />
         <SidebarMenuItem text="More" Icon={DotsCircleHorizontalIcon} />
+      </div>
+
+      {/* Button} */}
+      <button>Tweet</button>
+
+      {/* Mini Profile */}
+      <div>
+        <Image
+          src="https://i0.wp.com/www.cssscript.com/wp-content/uploads/2020/12/Customizable-SVG-Avatar-Generator-In-JavaScript-Avataaars.js.png?fit=438%2C408&ssl=1"
+          alt="user image"
+          height="100"
+          width="100"
+        ></Image>
+        <div>
+          <h4>Chima Nwagu</h4>
+          <p>@chimanwagu</p>
+        </div>
+        <DotsHorizontalIcon className="h-5" />
       </div>
     </div>
   );
