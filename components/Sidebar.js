@@ -15,7 +15,7 @@ import {
 
 const Sidebar = () => {
   return (
-    <div>
+    <div className="hidden sm:flex flex-col p-2 xl:items-start fixed h-full">
       <div className="hoverEffect">
         <Image
           alt="Bird App"
@@ -27,7 +27,7 @@ const Sidebar = () => {
 
       {/* <SidebarMenuItem /> */}
       <div>
-        <SidebarMenuItem text="Home" Icon={HomeIcon} />
+        <SidebarMenuItem text="Home" Icon={HomeIcon} active />
         <SidebarMenuItem text="Explore" Icon={HashtagIcon} />
         <SidebarMenuItem text="Notifications" Icon={BellIcon} />
         <SidebarMenuItem text="Messages" Icon={InboxIcon} />
@@ -38,21 +38,24 @@ const Sidebar = () => {
       </div>
 
       {/* Button} */}
-      <button>Tweet</button>
+      <button className="bg-blue-400 text-white rounded-full w-56 h-12 font-bold shadow-md hover:brightness-95 text-lg hidden xl:inline">
+        Tweet
+      </button>
 
       {/* Mini Profile */}
-      <div className="hoverEffect">
+      <div className="hoverEffect text-gray-700 flex items-center justify-center xl:justify-start mt-auto">
         <Image
           src="https://i0.wp.com/www.cssscript.com/wp-content/uploads/2020/12/Customizable-SVG-Avatar-Generator-In-JavaScript-Avataaars.js.png?fit=438%2C408&ssl=1"
           alt="user image"
           height="100"
           width="100"
+          className="h-10 w-10 rounded-full xl:mr-2"
         ></Image>
-        <div>
-          <h4>Chima Nwagu</h4>
-          <p>@chimanwagu</p>
+        <div className="leading-5 hidden xl:inline">
+          <h4 className="font-bold">Chima Nwagu</h4>
+          <p className="text-gray-500">@chimanwagu</p>
         </div>
-        <DotsHorizontalIcon className="h-5" />
+        <DotsHorizontalIcon className="h-5 xl:ml-8 hidden xl:inline" />
       </div>
     </div>
   );
