@@ -16,7 +16,7 @@ import {
 const Sidebar = () => {
   return (
     <div>
-      <div>
+      <div className="hoverEffect">
         <Image
           alt="Bird App"
           width="50"
@@ -41,7 +41,7 @@ const Sidebar = () => {
       <button>Tweet</button>
 
       {/* Mini Profile */}
-      <div>
+      <div className="hoverEffect">
         <Image
           src="https://i0.wp.com/www.cssscript.com/wp-content/uploads/2020/12/Customizable-SVG-Avatar-Generator-In-JavaScript-Avataaars.js.png?fit=438%2C408&ssl=1"
           alt="user image"
