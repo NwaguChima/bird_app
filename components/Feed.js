@@ -8,7 +8,7 @@ const Feed = () => {
     {
       id: "1",
       name: "Chima Michael",
-      username: "@chimaMichael",
+      username: "chimaMichael",
       userImg:
         "https://i0.wp.com/www.cssscript.com/wp-content/uploads/2020/12/Customizable-SVG-Avatar-Generator-In-JavaScript-Avataaars.js.png?fit=438%2C408&ssl=1",
       img: "https://images.unsplash.com/photo-1655893524877-cd2b9df26908?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",

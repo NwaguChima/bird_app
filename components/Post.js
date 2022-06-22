@@ -11,22 +11,32 @@ import React from "react";
 
 const Post = ({ post }) => {
   return (
-    <div>
+    <div className="flex p-3 cursor-pointer border-b border-gray-200 items-start">
       {/* user image */}
-      <Image src={post.userImg} alt="user-badge" width={50} height={50} />
+      <Image
+        src={post.userImg}
+        alt="user-badge"
+        width={50}
+        height={50}
+        className="h-11 w-11 rounded-full mr-4"
+      />
 
       {/* right side */}
       <div>
         {/* Header */}
-        <div>
+        <div className="flex items-center justify-between">
           {/* post user info */}
-          <div>
-            <h4>{post.name}</h4>
-            <span>{post.username}</span>
-            <span>{post.timestamp}</span>
+          <div className="flex space-x-1 items-center whitespace-nowrap">
+            <h4 className="font-bold text-[15px] sm:text-[16px] hover:underline">
+              {post.name}
+            </h4>
+            <span className="text-sm sm:text-[13px]">@{post.username} - </span>
+            <span className="text-sm sm:text-[15px] hover:underline">
+              {post.timestamp}
+            </span>
           </div>
           {/* icon */}
-          <DotsHorizontalIcon className="h-10" />
+          <DotsHorizontalIcon className="h-10 hoverEffect w-10 hover:bg-sky-100 hover:text-sky-500 p-2" />
         </div>
         {/* post content */}
         <p>{post.text}</p>
