@@ -2,20 +2,26 @@ import { getProviders } from "next-auth/react";
 
 const signin = ({ providers }) => {
   return (
-    <div>
+    <div className="flex justify-center mt-20 space-x-4">
       <img
         src="https://image.winudf.com/v2/image/Y29tLmxha25vY2suZ2l6YV9zY3JlZW5fMl8ybHA5MjhoZQ/screen-2.jpg?fakeurl=1"
         alt="bird app ui in a phone"
+        className="hidden object-cover md:w-44 md:h-80 rotate-6 md:inline-flex"
       />
-      <div>
+      <div className="">
         {Object.values(providers).map((provider) => (
-          <div>
+          <div key={provider.name} className="flex flex-col items-center">
             <img
               src="https://www.svgrepo.com/show/88851/cute-bird.svg"
               alt="bird app logo"
+              className="w-36 object-cover"
             />
-            <p>This app is created for learning purposes</p>
-            <button>Sign in with {provider.name}</button>
+            <p className="text-center text-sm italic my-10">
+              This app is created for learning purposes
+            </p>
+            <button className="bg-red-400 rounded-lg p-3 text-white hover:bg-red-500">
+              Sign in with {provider.name}
+            </button>
           </div>
         ))}
       </div>
