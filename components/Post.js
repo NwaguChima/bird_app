@@ -7,6 +7,7 @@ import {
   TrashIcon,
 } from "@heroicons/react/outline";
 import React from "react";
+import Moment from "react-moment";
 
 const Post = ({ post }) => {
   return (
@@ -30,7 +31,7 @@ const Post = ({ post }) => {
               @{post.data().username} -{" "}
             </span>
             <span className="text-sm sm:text-[15px] hover:underline">
-              {post.timestamp}
+              <Moment fromNow>{post?.timestamp?.toDate()}</Moment>
             </span>
           </div>
           <DotsHorizontalIcon className="h-10 hoverEffect w-10 hover:bg-sky-100 hover:text-sky-500 p-2" />
