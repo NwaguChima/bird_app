@@ -7,12 +7,12 @@ import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: "bird-app-6ff1b.firebaseapp.com",
   projectId: "bird-app-6ff1b",
   storageBucket: "bird-app-6ff1b.appspot.com",
   messagingSenderId: "1005442172197",
-  appId: process.env.FIREBASE_APP_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
 // Initialize Firebase

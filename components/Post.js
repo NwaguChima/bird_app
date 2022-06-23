@@ -6,7 +6,6 @@ import {
   ShareIcon,
   TrashIcon,
 } from "@heroicons/react/outline";
-import Image from "next/image";
 import React from "react";
 
 const Post = ({ post }) => {
