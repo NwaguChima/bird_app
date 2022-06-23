@@ -1,12 +1,12 @@
-import React from "react";
-import Image from "next/image";
 import { EmojiHappyIcon, PhotographIcon } from "@heroicons/react/outline";
+import { useSession } from "next-auth/react";
 
 const Input = () => {
+  const { data: session } = useSession();
   return (
     <div className="flex items-start border-b border-gray-200 p-3 space-x-3">
-      <Image
-        src="https://i0.wp.com/www.cssscript.com/wp-content/uploads/2020/12/Customizable-SVG-Avatar-Generator-In-JavaScript-Avataaars.js.png?fit=438%2C408&ssl=1"
+      <img
+        src={session.user.image}
         alt="user image"
         width="50"
         height="50"
