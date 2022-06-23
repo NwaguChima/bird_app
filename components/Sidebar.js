@@ -11,11 +11,10 @@ import {
   InboxIcon,
   UserIcon,
 } from "@heroicons/react/outline";
-import { useSession, signIn } from "next-auth/react";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const Sidebar = () => {
   const { data: session } = useSession();
-  console.log("session", session);
   return (
     <div className="hidden sm:flex flex-col p-2 xl:items-start fixed h-full xl:ml-24">
       <div className="hoverEffect p-0 hover:bg-blue-100 xl:px-1">
@@ -53,7 +52,8 @@ const Sidebar = () => {
 
           <div className="hoverEffect text-gray-700 flex items-center justify-center xl:justify-start mt-auto">
             <img
-              src="https://i0.wp.com/www.cssscript.com/wp-content/uploads/2020/12/Customizable-SVG-Avatar-Generator-In-JavaScript-Avataaars.js.png?fit=438%2C408&ssl=1"
+              onClick={signOut}
+              src={session.user.image}
               alt="user image"
               height="100"
               width="100"
@@ -61,7 +61,7 @@ const Sidebar = () => {
             />
             <div className="leading-5 hidden xl:inline">
               <h4 className="font-bold">{session.user.name}</h4>
-              <p className="text-gray-500">@chimanwagu</p>
+              <p className="text-gray-500">@{session.user.username}</p>
             </div>
             <DotsHorizontalIcon className="h-5 xl:ml-8 hidden xl:inline" />
           </div>
