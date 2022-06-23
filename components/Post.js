@@ -8,7 +8,13 @@ import {
   TrashIcon,
 } from "@heroicons/react/outline";
 import { HeartIcon as HeartIconFilled } from "@heroicons/react/solid";
-import { setDoc, doc, onSnapshot, collection } from "firebase/firestore";
+import {
+  setDoc,
+  doc,
+  onSnapshot,
+  collection,
+  deleteDoc,
+} from "firebase/firestore";
 import React from "react";
 import Moment from "react-moment";
 import { db } from "../firebase";
@@ -33,9 +39,13 @@ const Post = ({ post }) => {
   }, [likes]);
 
   const likePost = async () => {
-    await setDoc(doc(db, "posts", post.id, "likes", session?.user.uid), {
-      username: session.user.username,
-    });
+    if (hasLiked) {
+      await deleteDoc(doc(db, "posts", post.id, "likes", session?.user.uid));
+    } else {
+      await setDoc(doc(db, "posts", post.id, "likes", session?.user.uid), {
+        username: session.user.username,
+      });
+    }
   };
 
   // console.log("hasLiked", hasLiked);
