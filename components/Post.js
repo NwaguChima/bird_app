@@ -12,7 +12,7 @@ import React from "react";
 const Post = ({ post }) => {
   return (
     <div className="flex p-3 cursor-pointer border-b border-gray-200 items-start">
-      <Image
+      <img
         src={post.userImg}
         alt="user-badge"
         width={50}
@@ -38,7 +38,7 @@ const Post = ({ post }) => {
           {post.text}
         </p>
 
-        <Image
+        <img
           src={post.img}
           alt="post-image"
           width={500}
