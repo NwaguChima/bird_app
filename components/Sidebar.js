@@ -15,6 +15,7 @@ import { useSession, signIn } from "next-auth/react";
 
 const Sidebar = () => {
   const { data: session } = useSession();
+  console.log("session", session);
   return (
     <div className="hidden sm:flex flex-col p-2 xl:items-start fixed h-full xl:ml-24">
       <div className="hoverEffect p-0 hover:bg-blue-100 xl:px-1">
@@ -59,7 +60,7 @@ const Sidebar = () => {
               className="h-10 w-10 rounded-full xl:mr-2"
             />
             <div className="leading-5 hidden xl:inline">
-              <h4 className="font-bold">Chima Nwagu</h4>
+              <h4 className="font-bold">{session.user.name}</h4>
               <p className="text-gray-500">@chimanwagu</p>
             </div>
             <DotsHorizontalIcon className="h-5 xl:ml-8 hidden xl:inline" />
