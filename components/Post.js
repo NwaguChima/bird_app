@@ -18,7 +18,7 @@ import {
 import React from "react";
 import Moment from "react-moment";
 import { db } from "../firebase";
-import { useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 
 const Post = ({ post }) => {
   const { data: session } = useSession();
@@ -39,16 +39,18 @@ const Post = ({ post }) => {
   }, [likes]);
 
   const likePost = async () => {
-    if (hasLiked) {
-      await deleteDoc(doc(db, "posts", post.id, "likes", session?.user.uid));
+    if (session) {
+      if (hasLiked) {
+        await deleteDoc(doc(db, "posts", post.id, "likes", session?.user.uid));
+      } else {
+        await setDoc(doc(db, "posts", post.id, "likes", session?.user.uid), {
+          username: session.user.username,
+        });
+      }
     } else {
-      await setDoc(doc(db, "posts", post.id, "likes", session?.user.uid), {
-        username: session.user.username,
-      });
+      signIn();
     }
   };
-
-  // console.log("hasLiked", hasLiked);
 
   return (
     <div className="flex p-3 cursor-pointer border-b border-gray-200 items-start">
