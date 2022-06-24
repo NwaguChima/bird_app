@@ -1,7 +1,15 @@
-import React from "react";
+import { useRecoilState } from "recoil";
+import { modalState } from "../atom/modalAtom";
 
 const CommentModal = () => {
-  return <div>CommentModal</div>;
+  const [open, setOpen] = useRecoilState(modalState);
+
+  return (
+    <div>
+      <h1>Comment Modal</h1>
+      {open && <h2>The modal is open</h2>}
+    </div>
+  );
 };
 
 export default CommentModal;
