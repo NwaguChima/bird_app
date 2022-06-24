@@ -1,11 +1,21 @@
+import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import { modalState } from "../atom/modalAtom";
+import { modalState, postIdState } from "../atom/modalAtom";
 import Modal from "react-modal";
 import { XIcon } from "@heroicons/react/outline";
+import { db } from "../firebase";
+import { doc, onSnapshot } from "firebase/firestore";
 
 const CommentModal = () => {
   const [open, setOpen] = useRecoilState(modalState);
+  const [postId] = useRecoilState(postIdState);
+  const [post, setPost] = useState({});
 
+  useEffect(() => {
+    onSnapshot(doc(db, "posts", postId), (snapshot) => {
+      setPost(snapshot);
+    });
+  }, [postId, db]);
   return (
     <div>
       {open && (
@@ -23,6 +33,7 @@ const CommentModal = () => {
                 <XIcon className="h-[22px] text-gray-700" />
               </div>
             </div>
+            {<h1>{post?.data()?.username}</h1>}
           </div>
         </Modal>
       )}
