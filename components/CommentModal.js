@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { modalState, postIdState } from "../atom/modalAtom";
+import { useRouter } from "next/router";
 import Modal from "react-modal";
 import {
   EmojiHappyIcon,
@@ -24,6 +25,7 @@ const CommentModal = () => {
   const [post, setPost] = useState({});
   const [input, setInput] = useState("");
   const { data: session } = useSession();
+  const router = useRouter();
 
   useEffect(() => {
     onSnapshot(doc(db, "posts", postId), (snapshot) => {
@@ -42,6 +44,7 @@ const CommentModal = () => {
 
     setOpen(false);
     setInput("");
+    router.push(`/post/${postId}`);
   }
 
   return (
