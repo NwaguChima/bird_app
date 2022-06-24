@@ -4,9 +4,21 @@ import CommentModal from "../../components/CommentModal";
 import Sidebar from "../../components/Sidebar";
 import Widgets from "../../components/Widgets";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { doc, onSnapshot } from "firebase/firestore";
+import { db } from "../../firebase";
+import Post from "../../components/Post";
 
-export default function Post({ news, randomUser }) {
+export default function PostPage({ news, randomUser }) {
   const router = useRouter();
+  const { id } = router.query;
+  const [post, setPost] = useState();
+
+  useEffect(() => {
+    onSnapshot(doc(db, "posts", id), (snapshot) => {
+      setPost(snapshot);
+    });
+  }, [db, id]);
 
   return (
     <div>
@@ -27,6 +39,7 @@ export default function Post({ news, randomUser }) {
               Tweet
             </h2>
           </div>
+          <Post id={id} post={post} />
         </div>
 
         {/* Widgets */}
