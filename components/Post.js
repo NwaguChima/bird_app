@@ -76,7 +76,7 @@ const Post = ({ post }) => {
         className="h-11 w-11 rounded-full mr-4"
       />
 
-      <div>
+      <div className="flex-1">
         <div className="flex items-center justify-between">
           {/* post user info */}
           <div className="flex space-x-1 items-center whitespace-nowrap">
