@@ -19,6 +19,9 @@ import {
 import Moment from "react-moment";
 import { useSession } from "next-auth/react";
 
+//set root element to render the modal
+Modal.setAppElement("#__next");
+
 const CommentModal = () => {
   const [open, setOpen] = useRecoilState(modalState);
   const [postId] = useRecoilState(postIdState);
@@ -51,6 +54,7 @@ const CommentModal = () => {
     <div>
       {open && (
         <Modal
+          appElement={document.getElementById("root")}
           isOpen={open}
           onRequestClose={() => setOpen(false)}
           className="max-w-lg w-[90%] absolute top-24 left-[50%] translate-x-[-50%] bg-white outline-none border-2 border-gray-200 rounded-xl shadow-md"
