@@ -91,14 +91,15 @@ const Post = ({ post }) => {
         <p className="text-gray-800 text-[15px] sm:text-[16px] mb-2">
           {post.data().text}
         </p>
-
-        <img
-          src={post.data().image}
-          alt="post-image"
-          width={500}
-          height={500}
-          className="rounded-2xl mr-2"
-        />
+        {post.data().image && (
+          <img
+            src={post.data().image}
+            alt="post-image"
+            width={500}
+            height={500}
+            className="rounded-2xl mr-2"
+          />
+        )}
 
         <div className="flex justify-between text-gray-500 p-2">
           <ChatIcon className="h-9 w-9 hoverEffect p-2 hover:text-sky-500 hover:bg-sky-100" />
