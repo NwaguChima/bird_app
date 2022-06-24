@@ -6,11 +6,13 @@ import { XIcon } from "@heroicons/react/outline";
 import { db } from "../firebase";
 import { doc, onSnapshot } from "firebase/firestore";
 import Moment from "react-moment";
+import { useSession } from "next-auth/react";
 
 const CommentModal = () => {
   const [open, setOpen] = useRecoilState(modalState);
   const [postId] = useRecoilState(postIdState);
   const [post, setPost] = useState({});
+  const { data: session } = useSession();
 
   useEffect(() => {
     onSnapshot(doc(db, "posts", postId), (snapshot) => {
@@ -31,10 +33,11 @@ const CommentModal = () => {
                 onClick={() => setOpen(false)}
                 className="hoverEffect w-9 h-9 flex items-center justify-center"
               >
-                <XIcon className="h-[22px] text-gray-700" />
+                <XIcon className="h-[23px] text-gray-700" />
               </div>
             </div>
-            <div className="p-2 flex items-center space-x-1">
+            <div className="p-2 flex items-center space-x-1 relative">
+              <span className="w-0.5 h-full z-[-1] absolute left-8 top-11 bg-gray-300" />
               <img
                 src={post?.data()?.image}
                 alt="user-image"
