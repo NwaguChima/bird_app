@@ -5,6 +5,7 @@ import Modal from "react-modal";
 import { XIcon } from "@heroicons/react/outline";
 import { db } from "../firebase";
 import { doc, onSnapshot } from "firebase/firestore";
+import Moment from "react-moment";
 
 const CommentModal = () => {
   const [open, setOpen] = useRecoilState(modalState);
@@ -33,7 +34,22 @@ const CommentModal = () => {
                 <XIcon className="h-[22px] text-gray-700" />
               </div>
             </div>
-            {<h1>{post?.data()?.username}</h1>}
+            <div className="p-2 flex items-center space-x-1">
+              <img
+                src={post?.data()?.image}
+                alt="user-image"
+                className="h-11 w-11 rounded-full mr-4"
+              />
+              <h4 className="font-bold text-[15px] sm:text-[16px] hover:underline">
+                {post?.data()?.name}
+              </h4>
+              <span className="text-sm sm:text-[13px]">
+                @{post?.data()?.username} -{" "}
+              </span>
+              <span className="text-sm sm:text-[15px] hover:underline">
+                <Moment fromNow>{post?.data()?.timestamp?.toDate()}</Moment>
+              </span>
+            </div>
           </div>
         </Modal>
       )}
