@@ -14,6 +14,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../../firebase";
 import Post from "../../components/Post";
+import Comment from "../../components/Comment";
 
 export default function PostPage({ news, randomUser }) {
   const router = useRouter();
@@ -59,6 +60,14 @@ export default function PostPage({ news, randomUser }) {
             </h2>
           </div>
           <Post id={id} post={post} />
+          {comments.length > 0 &&
+            comments.map((comment) => (
+              <Comment
+                key={comment.id}
+                id={comment.id}
+                comment={comment.data()}
+              />
+            ))}
         </div>
 
         {/* Widgets */}
