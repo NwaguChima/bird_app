@@ -1,4 +1,3 @@
-import React from "react";
 import SidebarMenuItem from "./SidebarMenuItem";
 import {
   BellIcon,

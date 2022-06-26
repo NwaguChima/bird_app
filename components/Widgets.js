@@ -1,11 +1,11 @@
 import { SearchIcon } from "@heroicons/react/outline";
 import { AnimatePresence, motion } from "framer-motion";
-import React from "react";
+import { useState } from "react";
 import News from "./News";
 
 const Widgets = ({ newsResult, randomUserResults }) => {
-  const [articleNum, setArticleNum] = React.useState(3);
-  const [randomUserNumber, setRandomUserNumber] = React.useState(3);
+  const [articleNum, setArticleNum] = useState(3);
+  const [randomUserNumber, setRandomUserNumber] = useState(3);
 
   return (
     <div className="xl:w-[600px] hidden lg:inline ml-8 space-y-5">
