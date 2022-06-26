@@ -37,12 +37,16 @@ const Post = ({ comment, commentId, originalPostId }) => {
       collection(db, "posts", originalPostId, "comments", commentId, "likes"),
       (snapshot) => setLikes(snapshot.docs)
     );
+
+    // eslint-disable-next-line
   }, [db, originalPostId, commentId]);
 
   useEffect(() => {
     setHasLiked(
       likes.findIndex((like) => like.id === session?.user.uid) !== -1
     );
+
+    // eslint-disable-next-line
   }, [likes]);
 
   const likeComment = async () => {

@@ -28,6 +28,8 @@ export default function PostPage({ news, randomUser }) {
     onSnapshot(doc(db, "posts", id), (snapshot) => {
       setPost(snapshot);
     });
+
+    // eslint-disable-next-line
   }, [db, id]);
 
   // get comments of the post
