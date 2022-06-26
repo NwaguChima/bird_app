@@ -34,6 +34,8 @@ const CommentModal = () => {
     onSnapshot(doc(db, "posts", postId), (snapshot) => {
       setPost(snapshot);
     });
+
+    // eslint-disable-next-line
   }, [postId, db]);
 
   async function sendComment() {
